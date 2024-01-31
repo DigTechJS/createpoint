@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG</title>
+</head>
+<body style="padding:0px; margin:0px;background-color:powderblue; font-family:'Times New Roman', Times, serif">
+    <svg xmlns="http://www.w3.org/2000/svg" style="padding:0px; margin:0px;background-color:rgb(242, 255, 0) " id="my-svg" width="100vw" height="88vh">
+        <!-- <p>"Hello Hi Bye Bye...</p> -->
+    </svg>
+    <h1 style="text-align:center; ;">Click anywhere in the yellow area to draw a red circle at that location.</h1>
+    
+    
+
+    <script>
+        // Create SVG element
+        const svg = document.getElementById("my-svg");
+
+        // Create SVG shape (e.g., circle)
+        function createCircle(x, y) {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttributeNS(null,"r", "20");
+            circle.setAttributeNS(null,"fill", "red");
+            circle.setAttributeNS(null,"cx", x);
+            circle.setAttributeNS(null,"cy", y );
+            svg.appendChild(circle);
+        }
+
+        // Add click event listener to SVG
+        svg.addEventListener('click', function(e) {
+            const x = e.x;
+            const y = e.y;
+            console.log(x, y);
+            createCircle(x, y);
+        });
+    </script>
+</body>
+</html>
